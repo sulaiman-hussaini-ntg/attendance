@@ -31,12 +31,10 @@ const Login = () => {
         config
       );
       setIsLoading(false);
-
       localStorage.setItem("employee", JSON.stringify(res.data));
       navigate("/attendance");
     } catch (e) {
       setIsLoading(false);
-
       setError("Incorrect credentials");
       console.error(e);
     }
@@ -67,7 +65,7 @@ const Login = () => {
         />
         <p className="error">{error}</p>
         <button type="submit" name="submit" value="Login" disabled={isLoading}>
-          LOGIN
+          {isLoading ? "Loading..." : "LOGIN"}
         </button>
       </form>
     </div>
